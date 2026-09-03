@@ -104,13 +104,19 @@ const groups = [
     description: "Servicios de apoyo",
     sections: [
       {
-        name: "Control y revisión",
+        name: "Antiplagio",
         apps: [
           {
-            name: "Antiplagio",
-            description: "Revisión antiplagio institucional",
-            url: "https://jeffer91.github.io/Antiplagio-ITSQMET/#/admin",
+            name: "Aplicación Antiplagio",
+            description: "Sistema institucional de revisión antiplagio",
+            url: "https://jeffer91.github.io/Antiplagio-ITSQMET/",
             icon: "scan"
+          },
+          {
+            name: "Repositorio Antiplagio",
+            description: "Código fuente y mantenimiento en GitHub",
+            url: "https://github.com/jeffer91/Antiplagio-ITSQMET",
+            icon: "code"
           }
         ]
       }
@@ -131,7 +137,8 @@ const icons = {
   curriculum: `<svg viewBox="0 0 24 24"><path d="M4.5 5.5A2.5 2.5 0 0 1 7 3h4.5v16H7a2.5 2.5 0 0 0-2.5 2V5.5Z"/><path d="M19.5 5.5A2.5 2.5 0 0 0 17 3h-4.5v16H17a2.5 2.5 0 0 1 2.5 2V5.5Z"/></svg>`,
   training: `<svg viewBox="0 0 24 24"><path d="M5 4h14v12H5z"/><path d="M8 20h8M12 16v4M9 8h6M9 11h4"/></svg>`,
   checklist: `<svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"/><path d="m9 9 1.5 1.5L13 8M14.5 9H16M9 15h7"/></svg>`,
-  scan: `<svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 12h8M10 9h4M10 15h4"/></svg>`
+  scan: `<svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 12h8M10 9h4M10 15h4"/></svg>`,
+  code: `<svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>`
 };
 
 const groupGrid = document.querySelector("#group-grid");
