@@ -55,22 +55,44 @@ const groups = [
   {
     name: "Gestión académica",
     icon: "academic",
-    description: "Procesos académicos internos",
+    description: "Currículo, formación docente y requisitos",
     sections: [
       {
-        name: "Gestión y planificación",
+        name: "Currículo",
         apps: [
           {
             name: "Gestión Curricular",
             description: "Currículo, mallas, fichas y estadísticas",
             url: "https://jeffer91.github.io/curriculo/",
             icon: "curriculum"
-          },
+          }
+        ]
+      },
+      {
+        name: "Formación docente",
+        apps: [
           {
             name: "Capacitación Docente",
             description: "Gestión de capacitación docente",
             url: "https://capacitacindocenteitsqmet.netlify.app/index.html",
             icon: "training"
+          },
+          {
+            name: "Documentos de Formación",
+            description: "DNF, plan de formación e informe de cumplimiento",
+            url: "https://jeffer91.github.io/docformacion/",
+            icon: "report"
+          }
+        ]
+      },
+      {
+        name: "Requisitos académicos",
+        apps: [
+          {
+            name: "Requisitos",
+            description: "Carga, revisión y gestión de requisitos",
+            url: "https://jeffer91.github.io/requisitos/Maqueta/maq-index.html",
+            icon: "checklist"
           }
         ]
       }
@@ -108,6 +130,7 @@ const icons = {
   shield: `<svg viewBox="0 0 24 24"><path d="M12 3 19 6v5.5c0 4.6-2.7 7.6-7 9.5-4.3-1.9-7-4.9-7-9.5V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>`,
   curriculum: `<svg viewBox="0 0 24 24"><path d="M4.5 5.5A2.5 2.5 0 0 1 7 3h4.5v16H7a2.5 2.5 0 0 0-2.5 2V5.5Z"/><path d="M19.5 5.5A2.5 2.5 0 0 0 17 3h-4.5v16H17a2.5 2.5 0 0 1 2.5 2V5.5Z"/></svg>`,
   training: `<svg viewBox="0 0 24 24"><path d="M5 4h14v12H5z"/><path d="M8 20h8M12 16v4M9 8h6M9 11h4"/></svg>`,
+  checklist: `<svg viewBox="0 0 24 24"><path d="M6 4h12v16H6z"/><path d="m9 9 1.5 1.5L13 8M14.5 9H16M9 15h7"/></svg>`,
   scan: `<svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 12h8M10 9h4M10 15h4"/></svg>`
 };
 
