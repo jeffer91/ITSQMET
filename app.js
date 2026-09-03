@@ -40,6 +40,13 @@ const apps = [
     description: "Panel administrativo para el sistema de revisión antiplagio institucional.",
     url: "https://jeffer91.github.io/Antiplagio-ITSQMET/#/admin",
     icon: "scan"
+  },
+  {
+    name: "Gestión Curricular",
+    category: "Gestión académica",
+    description: "Gestión de currículo, mallas, estadísticas, fichas, comunicados y configuración.",
+    url: "https://jeffer91.github.io/curriculo/",
+    icon: "curriculum"
   }
 ];
 
@@ -49,7 +56,8 @@ const icons = {
   users: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3 19c.6-3 2.5-4.5 5.5-4.5S13.4 16 14 19M16 11a2.5 2.5 0 1 0 0-5M15.5 14.5c2.8 0 4.6 1.5 5.1 4.5"/></svg>`,
   research: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v5l-5 9a2.7 2.7 0 0 0 2.4 4h9.2a2.7 2.7 0 0 0 2.4-4l-5-9V3"/><path d="M8 14h8"/></svg>`,
   shield: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5.5c0 4.6-2.7 7.6-7 9.5-4.3-1.9-7-4.9-7-9.5V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>`,
-  scan: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 12h8M10 9h4M10 15h4"/></svg>`
+  scan: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 12h8M10 9h4M10 15h4"/></svg>`,
+  curriculum: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5A2.5 2.5 0 0 1 7 3h4.5v16H7a2.5 2.5 0 0 0-2.5 2V5.5Z"/><path d="M19.5 5.5A2.5 2.5 0 0 0 17 3h-4.5v16H17a2.5 2.5 0 0 1 2.5 2V5.5Z"/></svg>`
 };
 
 const grid = document.querySelector("#app-grid");
