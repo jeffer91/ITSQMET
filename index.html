@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101214" />
+  <meta name="description" content="Portal central de aplicaciones ITSQMET." />
+  <title>ITSQMET | Portal de Aplicaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar__inner">
+      <a class="brand" href="#inicio" aria-label="ITSQMET - Inicio">
+        <img class="brand__logo" src="assets/logo-itsqmet.webp" alt="ITSQMET" />
+      </a>
+      <div class="topbar__meta">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Portal institucional</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero__glow hero__glow--one"></div>
+      <div class="hero__glow hero__glow--two"></div>
+      <div class="shell hero__content">
+        <div class="hero__copy">
+          <span class="eyebrow">Centro de aplicaciones</span>
+          <h1>Todas tus herramientas<br><span>en un solo lugar.</span></h1>
+          <p>Acceso rápido y ordenado a las plataformas académicas y administrativas de ITSQMET.</p>
+        </div>
+        <div class="hero__stat" aria-label="Número de aplicaciones registradas">
+          <strong id="app-count">6</strong>
+          <span>aplicaciones<br>disponibles</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace shell" aria-labelledby="catalogo-title">
+      <div class="workspace__head">
+        <div>
+          <span class="section-kicker">Directorio</span>
+          <h2 id="catalogo-title">Aplicaciones ITSQMET</h2>
+        </div>
+        <div class="search" role="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
+          <input id="search-input" type="search" placeholder="Buscar aplicación..." autocomplete="off" aria-label="Buscar aplicación" />
+          <button id="search-clear" class="search__clear" type="button" aria-label="Limpiar búsqueda" hidden>×</button>
+        </div>
+      </div>
+
+      <div class="filters" id="filters" aria-label="Filtrar aplicaciones por categoría"></div>
+      <p class="results-note" id="results-note" aria-live="polite"></p>
+      <div class="app-grid" id="app-grid"></div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <div class="empty-state__icon">⌕</div>
+        <h3>No encontramos esa aplicación</h3>
+        <p>Prueba con otro nombre o selecciona otra categoría.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <div>
+        <strong>ITSQMET</strong>
+        <span>Portal de Aplicaciones</span>
+      </div>
+      <p>Acceso centralizado a plataformas institucionales.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
