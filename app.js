@@ -2,51 +2,66 @@ const groups = [
   {
     name: "Titulación",
     icon: "graduation",
-    description: "Títulos y documentos de titulación",
+    description: "Registro, revisión y documentación de titulación",
+    featured: true,
     sections: [
       {
-        name: "Creación y aprobación de títulos",
+        name: "Registro de títulos · Estudiantes",
+        description: "Propuestas de artículos académicos y trabajos de titulación",
         apps: [
           {
-            name: "Estudiantes",
-            description: "Ingreso y propuesta de títulos",
+            name: "Título de Artículo Académico",
+            description: "Registrar o consultar la propuesta de título del artículo",
             url: "https://titulos.pages.dev/estudiantes/estudiante",
-            icon: "student"
+            icon: "article",
+            badge: "Estudiantes"
           },
           {
-            name: "Trabajo de Titulación",
-            description: "Gestión del trabajo y título",
+            name: "Título de Trabajo de Titulación",
+            description: "Registrar o consultar la propuesta de título del trabajo de titulación",
             url: "https://titulos.pages.dev/trabajo-titulacion/",
-            icon: "document"
-          },
-          {
-            name: "Coordinadores",
-            description: "Revisión y validación de títulos",
-            url: "https://titulos-coordinadores.pages.dev/",
-            icon: "users"
-          },
-          {
-            name: "Investigadores",
-            description: "Revisión de investigación",
-            url: "https://titulos-investigadores.pages.dev/",
-            icon: "research"
-          },
-          {
-            name: "Administrador",
-            description: "Administración del sistema de títulos",
-            url: "https://titulos-administrador.pages.dev/",
-            icon: "shield"
+            icon: "document",
+            badge: "Estudiantes"
           }
         ]
       },
       {
-        name: "Documentos de titulación",
+        name: "Revisión y aprobación",
+        description: "Accesos para el personal responsable de validar las propuestas",
+        apps: [
+          {
+            name: "Revisión de Coordinadores",
+            description: "Validación inicial de las propuestas de títulos",
+            url: "https://titulos-coordinadores.pages.dev/",
+            icon: "users",
+            badge: "Coordinación"
+          },
+          {
+            name: "Revisión de Investigación",
+            description: "Revisión y aprobación por el área de investigación",
+            url: "https://titulos-investigadores.pages.dev/",
+            icon: "research",
+            badge: "Investigación"
+          },
+          {
+            name: "Administración de Títulos",
+            description: "Gestión, seguimiento e historial de las propuestas",
+            url: "https://titulos-administrador.pages.dev/",
+            icon: "shield",
+            badge: "Administración"
+          }
+        ]
+      },
+      {
+        name: "Documentos y reportes",
+        description: "Herramientas complementarias del proceso de titulación",
         apps: [
           {
             name: "Informes de Titulación",
             description: "Crear documentos e informes de titulación",
             url: "https://jeffer91.github.io/Informtit/",
-            icon: "report"
+            icon: "report",
+            badge: "Gestión"
           }
         ]
       }
@@ -101,7 +116,7 @@ const groups = [
   {
     name: "Herramientas académicas",
     icon: "tools",
-    description: "Servicios de apoyo",
+    description: "Servicios de apoyo académico",
     sections: [
       {
         name: "Antiplagio",
@@ -129,6 +144,7 @@ const icons = {
   academic: `<svg viewBox="0 0 24 24"><path d="M4 5h6a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H4V5Z"/><path d="M20 5h-6a3 3 0 0 0-3 3v11a3 3 0 0 1 3-3h6V5Z"/></svg>`,
   tools: `<svg viewBox="0 0 24 24"><path d="M14 6a4 4 0 0 0 4.8 4.8l-8.7 8.7a2 2 0 0 1-2.8-2.8L16 8a4 4 0 0 0 4.8-4.8L18 6l-2-2 2.8-2.8A4 4 0 0 0 14 6Z"/></svg>`,
   student: `<svg viewBox="0 0 24 24"><path d="M3 10.5 12 6l9 4.5-9 4.5-9-4.5Z"/><path d="M7 12.5v4c2.8 2 7.2 2 10 0v-4"/></svg>`,
+  article: `<svg viewBox="0 0 24 24"><path d="M6 3.5h12v17H6z"/><path d="M9 8h6M9 11h6M9 14h4M9 17h5"/></svg>`,
   document: `<svg viewBox="0 0 24 24"><path d="M6.5 3.5h7l4 4v13h-11v-17Z"/><path d="M13.5 3.5v4h4M9 12h6M9 15h6"/></svg>`,
   report: `<svg viewBox="0 0 24 24"><path d="M6 3.5h9l3 3v14H6v-17Z"/><path d="M15 3.5v3h3M9 11h6M9 14h6M9 17h4"/></svg>`,
   users: `<svg viewBox="0 0 24 24"><path d="M8.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3 19c.6-3 2.5-4.5 5.5-4.5S13.4 16 14 19M16 11a2.5 2.5 0 1 0 0-5M15.5 14.5c2.8 0 4.6 1.5 5.1 4.5"/></svg>`,
@@ -163,15 +179,17 @@ function normalize(value) {
 
 function appMatches(app, group, section, query) {
   if (!query) return true;
-  return normalize(`${group.name} ${group.description} ${section.name} ${app.name} ${app.description} ${app.url}`).includes(query);
+  return normalize(`${group.name} ${group.description} ${section.name} ${section.description || ""} ${app.name} ${app.description} ${app.badge || ""} ${app.url}`).includes(query);
 }
 
 function appRow(app) {
+  const badge = app.badge ? `<span class="route__badge">${app.badge}</span>` : "";
+
   return `
     <a class="route" href="${app.url}" target="_blank" rel="noopener noreferrer">
       <span class="route__icon">${icons[app.icon] || icons.document}</span>
       <span class="route__body">
-        <strong>${app.name}</strong>
+        <span class="route__heading"><strong>${app.name}</strong>${badge}</span>
         <small>${app.description}</small>
       </span>
       <span class="route__arrow" aria-hidden="true">↗</span>
@@ -179,12 +197,17 @@ function appRow(app) {
 }
 
 function sectionBlock(section, visibleApps) {
+  const description = section.description
+    ? `<p class="route-section__description">${section.description}</p>`
+    : "";
+
   return `
     <section class="route-section">
       <div class="route-section__title">
         <span>${section.name}</span>
         <small>${visibleApps.length}</small>
       </div>
+      ${description}
       <div class="route-list">
         ${visibleApps.map(appRow).join("")}
       </div>
@@ -193,8 +216,10 @@ function sectionBlock(section, visibleApps) {
 
 function groupCard(group, visibleSections) {
   const count = visibleSections.reduce((sum, item) => sum + item.visibleApps.length, 0);
+  const featuredClass = group.featured ? " group-card--featured" : "";
+
   return `
-    <article class="group-card">
+    <article class="group-card${featuredClass}">
       <header class="group-card__head">
         <span class="group-card__icon">${icons[group.icon] || icons.academic}</span>
         <span class="group-card__title">
