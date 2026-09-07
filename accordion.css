@@ -2,12 +2,19 @@
 .group-grid{
   display:flex;
   flex-direction:column;
+  align-items:stretch;
   gap:12px;
 }
 
 .group-card,
 .group-card--featured{
   grid-column:auto;
+  width:100%;
+}
+
+/* El bloque principal de títulos tiene dos flujos claramente separados. */
+.group-card--featured .group-card__content{
+  grid-template-columns:repeat(2,minmax(0,1fr));
 }
 
 .group-card__trigger{
@@ -30,7 +37,8 @@
   border-bottom:1px solid var(--line);
 }
 
-.group-card__content[hidden]{
+.group-card__content[hidden],
+.empty-state[hidden]{
   display:none !important;
 }
 
@@ -70,6 +78,7 @@
 
 @media(max-width:700px){
   .group-grid{gap:10px}
+  .group-card--featured .group-card__content{grid-template-columns:1fr}
   .group-card__meta{gap:7px}
   .group-card__chevron{width:26px;height:26px}
 }
