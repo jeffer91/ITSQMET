@@ -1,13 +1,13 @@
 const groups = [
   {
-    name: "Titulación",
+    name: "Registro y aprobación de títulos",
     icon: "graduation",
-    description: "Registro, revisión y documentación de titulación",
+    description: "Propuestas de títulos de artículos académicos y trabajos de titulación",
     featured: true,
     sections: [
       {
-        name: "Registro de títulos · Estudiantes",
-        description: "Propuestas de artículos académicos y trabajos de titulación",
+        name: "Estudiantes",
+        description: "Registro y consulta de propuestas de títulos",
         apps: [
           {
             name: "Título de Artículo Académico",
@@ -26,8 +26,8 @@ const groups = [
         ]
       },
       {
-        name: "Revisión y aprobación",
-        description: "Accesos para el personal responsable de validar las propuestas",
+        name: "Revisión institucional",
+        description: "Validación y aprobación de las propuestas registradas",
         apps: [
           {
             name: "Revisión de Coordinadores",
@@ -51,17 +51,23 @@ const groups = [
             badge: "Administración"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    name: "Informes de titulación",
+    icon: "report",
+    description: "Generación de documentos e informes del proceso de titulación",
+    sections: [
       {
-        name: "Documentos y reportes",
-        description: "Herramientas complementarias del proceso de titulación",
+        name: "Informes y documentos",
         apps: [
           {
-            name: "Informes de Titulación",
+            name: "Generador de Informes de Titulación",
             description: "Crear documentos e informes de titulación",
             url: "https://jeffer91.github.io/Informtit/",
             icon: "report",
-            badge: "Gestión"
+            badge: "Informes"
           }
         ]
       }
