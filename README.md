@@ -4,12 +4,13 @@ Portal central para acceder de forma ordenada a las aplicaciones institucionales
 
 ## Estructura actual
 
-El portal organiza **12 accesos en 3 áreas principales**, presentadas como acordeones:
+El portal organiza **12 accesos en 4 áreas principales**, presentadas como acordeones:
 
-- **Titulación**
-  - Registro de títulos para estudiantes
-  - Revisión y aprobación
-  - Documentos y reportes
+- **Registro y aprobación de títulos**
+  - Registro de propuestas para estudiantes
+  - Revisión institucional
+- **Informes de titulación**
+  - Generador de Informes de Titulación
 - **Gestión académica**
   - Currículo
   - Formación docente
@@ -17,7 +18,7 @@ El portal organiza **12 accesos en 3 áreas principales**, presentadas como acor
 - **Herramientas académicas**
   - Antiplagio
 
-La sección de Titulación se abre por defecto. Al abrir otra área, la anterior se cierra. Durante una búsqueda se muestran abiertas las áreas que contienen coincidencias.
+La sección de Registro y aprobación de títulos se abre por defecto. Al abrir otra área, la anterior se cierra. Durante una búsqueda se muestran abiertas las áreas que contienen coincidencias.
 
 ## Agregar o editar una aplicación
 
