@@ -1,8 +1,8 @@
 const groups = [
   {
-    name: "Registro y aprobación de títulos",
+    name: "Entrega de títulos",
     icon: "graduation",
-    description: "Propuestas de títulos de artículos académicos y trabajos de titulación",
+    description: "Registro, revisión y aprobación de títulos de artículos académicos y trabajos de titulación",
     featured: true,
     sections: [
       {
