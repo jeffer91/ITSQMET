@@ -6,7 +6,7 @@ Portal central para acceder de forma ordenada a las aplicaciones institucionales
 
 El portal organiza **12 accesos en 4 áreas principales**, presentadas como acordeones:
 
-- **Registro y aprobación de títulos**
+- **Entrega de títulos**
   - Registro de propuestas para estudiantes
   - Revisión institucional
 - **Informes de titulación**
@@ -18,7 +18,7 @@ El portal organiza **12 accesos en 4 áreas principales**, presentadas como acor
 - **Herramientas académicas**
   - Antiplagio
 
-La sección de Registro y aprobación de títulos se abre por defecto. Al abrir otra área, la anterior se cierra. Durante una búsqueda se muestran abiertas las áreas que contienen coincidencias.
+La sección de Entrega de títulos se abre por defecto. Al abrir otra área, la anterior se cierra. Durante una búsqueda se muestran abiertas las áreas que contienen coincidencias.
 
 ## Agregar o editar una aplicación
 
