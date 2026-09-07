@@ -1,49 +1,59 @@
 # ITSQMET · Portal de Aplicaciones
 
-Portal central para acceder a las aplicaciones institucionales de ITSQMET.
+Portal central para acceder de forma ordenada a las aplicaciones institucionales de ITSQMET.
 
-## Aplicaciones actuales
+## Estructura actual
 
-- Estudiantes
-- Trabajo de Titulación
-- Coordinadores
-- Investigadores
-- Administrador
-- Antiplagio
+El portal organiza **12 accesos en 3 áreas principales**, presentadas como acordeones:
 
-## Agregar una nueva aplicación
+- **Titulación**
+  - Registro de títulos para estudiantes
+  - Revisión y aprobación
+  - Documentos y reportes
+- **Gestión académica**
+  - Currículo
+  - Formación docente
+  - Requisitos académicos
+- **Herramientas académicas**
+  - Antiplagio
 
-Las aplicaciones se administran desde el arreglo `apps` de `app.js`.
+La sección de Titulación se abre por defecto. Al abrir otra área, la anterior se cierra. Durante una búsqueda se muestran abiertas las áreas que contienen coincidencias.
 
-Agregar un nuevo objeto con esta estructura:
+## Agregar o editar una aplicación
+
+Las áreas, secciones y aplicaciones se administran desde el arreglo `groups` de `app.js`.
+
+Cada aplicación utiliza una estructura como esta:
 
 ```js
 {
   name: "Nombre de la aplicación",
-  category: "Categoría",
-  description: "Descripción breve.",
+  description: "Descripción breve",
   url: "https://...",
-  icon: "document"
+  icon: "document",
+  badge: "Opcional"
 }
 ```
 
-Las categorías se crean automáticamente a partir de los registros del arreglo y aparecen como filtros en el portal.
+## Paleta visual
 
-## Paleta
-
-- Negro institucional: `#111315`
-- Dorado principal: `#C6AC76`
-- Dorado oscuro: `#A88B50`
-- Marfil de fondo: `#F7F5F0`
+- Azul oscuro institucional: `#0F1720`
+- Dorado principal: `#B78A2F`
+- Dorado oscuro: `#8F6A1F`
 - Blanco: `#FFFFFF`
+- Gris de fondo: `#F8FAFC`
+- Gris de bordes: `#E5E7EB`
 
-## Estructura
+## Estructura del repositorio
 
 ```text
 ITSQMET/
 ├── index.html
 ├── styles.css
 ├── app.js
+├── accordion.css
+├── accordion.js
+├── .nojekyll
 └── assets/
     └── logo-itsqmet.webp
 ```
