@@ -4,17 +4,25 @@ Portal central para acceder de forma ordenada a las aplicaciones institucionales
 
 ## Estructura actual
 
-El portal organiza **12 accesos en 4 áreas principales**, presentadas como acordeones:
+El portal organiza **18 accesos en 6 áreas principales**, presentadas como acordeones:
 
 - **Entrega de títulos**
   - Registro de propuestas para estudiantes
   - Revisión institucional
+- **Documentación y planificación de titulación**
+  - Planificación de Examen Complexivo, Trabajo de Titulación y Artículo Académico
 - **Informes de titulación**
   - Generador de Informes de Titulación
 - **Gestión académica**
   - Currículo
   - Formación docente
   - Requisitos académicos
+- **Club de fútbol**
+  - Portal principal
+  - Inscripción
+  - Estudiantes
+  - Árbitro
+  - Administrador
 - **Herramientas académicas**
   - Antiplagio
 
@@ -22,7 +30,7 @@ La sección de Entrega de títulos se abre por defecto. Al abrir otra área, la 
 
 ## Agregar o editar una aplicación
 
-Las áreas, secciones y aplicaciones se administran desde el arreglo `groups` de `app.js`.
+Las áreas principales existentes se administran desde `app.js`. Las áreas incorporadas posteriormente de planificación y Club de Fútbol se encuentran en `catalogo-extra.js`.
 
 Cada aplicación utiliza una estructura como esta:
 
@@ -52,6 +60,7 @@ ITSQMET/
 ├── index.html
 ├── styles.css
 ├── app.js
+├── catalogo-extra.js
 ├── accordion.css
 ├── accordion.js
 ├── .nojekyll
