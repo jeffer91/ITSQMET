@@ -12,7 +12,7 @@ const groups = [
           {
             name: "Título de Artículo Académico",
             description: "Registrar o consultar la propuesta de título del artículo",
-            url: "https://titulos.pages.dev/estudiantes/estudiante",
+            url: "https://jeffer91.github.io/titulos/estudiantes/estudiante.html",
             icon: "article",
             badge: "Estudiantes"
           },
@@ -32,21 +32,21 @@ const groups = [
           {
             name: "Revisión de Coordinadores",
             description: "Validación inicial de las propuestas de títulos",
-            url: "https://titulos-coordinadores.pages.dev/",
+            url: "https://jeffer91.github.io/titulos/coordinadores/coordinador.html",
             icon: "users",
             badge: "Coordinación"
           },
           {
             name: "Revisión de Investigación",
             description: "Revisión y aprobación por el área de investigación",
-            url: "https://titulos-investigadores.pages.dev/",
+            url: "https://jeffer91.github.io/titulos/investigadores/investigador.html",
             icon: "research",
             badge: "Investigación"
           },
           {
             name: "Administración de Títulos",
             description: "Gestión, seguimiento e historial de las propuestas",
-            url: "https://titulos-administrador.pages.dev/",
+            url: "https://jeffer91.github.io/titulos/administradores/administrador.html",
             icon: "shield",
             badge: "Administración"
           }
