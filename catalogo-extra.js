@@ -23,6 +23,26 @@
             badge: "Planificación"
           }
         ]
+      },
+      {
+        name: "Elección de sede del Examen Complexivo",
+        description: "Accesos separados para estudiantes y administradores",
+        apps: [
+          {
+            name: "Seleccionar sede - Estudiantes",
+            description: "Elegir la sede para rendir el Examen Complexivo",
+            url: "https://jeffer91.github.io/sedes/estudiante/",
+            icon: "student",
+            badge: "Estudiantes"
+          },
+          {
+            name: "Gestión de sedes - Administrador",
+            description: "Consultar y gestionar la selección de sedes",
+            url: "https://jeffer91.github.io/sedes/administrador/",
+            icon: "shield",
+            badge: "Administración"
+          }
+        ]
       }
     ]
   };
