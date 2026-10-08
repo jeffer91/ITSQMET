@@ -4,13 +4,14 @@ Portal central para acceder de forma ordenada a las aplicaciones institucionales
 
 ## Estructura actual
 
-El portal organiza **18 accesos en 6 áreas principales**, presentadas como acordeones:
+El portal organiza **20 accesos en 6 áreas principales**, presentadas como acordeones:
 
 - **Entrega de títulos**
   - Registro de propuestas para estudiantes
   - Revisión institucional
 - **Documentación y planificación de titulación**
   - Planificación de Examen Complexivo, Trabajo de Titulación y Artículo Académico
+  - Elección de sede del Examen Complexivo (Estudiantes y Administrador)
 - **Informes de titulación**
   - Generador de Informes de Titulación
 - **Gestión académica**
