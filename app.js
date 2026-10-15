@@ -47,14 +47,21 @@ const groups = [
     id: "academica",
     name: "Gestión académica y docente",
     icon: "academic",
-    description: "Currículo, formación docente y requisitos académicos",
+    description: "Encuestas, capacitación, currículo y requisitos",
     sections: [
       {
-        name: "Gestión y seguimiento",
+        name: "Detección de formación y capacitación",
+        apps: [
+          { id: "encuesta-formacion", name: "Encuesta de Formación y Capacitación", description: "Formulario docente para detectar necesidades de formación y capacitación.", url: "https://jeffer91.github.io/Encuesta-Form-Cap/", icon: "survey", badge: "Docentes", aliases: ["encuesta", "formulario", "formacion", "capacitacion", "deteccion", "necesidades", "diagnostico", "docente", "dnf"] },
+          { id: "encuesta-formacion-admin", name: "Administración de Encuesta Docente", description: "Panel para gestionar respuestas de la encuesta de detección de necesidades.", url: "https://jeffer91.github.io/Encuesta-Form-Cap/admin.html", icon: "shield", badge: "Administración", aliases: ["encuesta", "formacion", "capacitacion", "deteccion", "necesidades", "respuestas", "estadisticas", "panel", "admin", "docente"] },
+          { id: "capacitacion", name: "Capacitación Docente", description: "Organización y seguimiento de la capacitación docente.", url: "https://capacitacindocenteitsqmet.netlify.app/index.html", icon: "training", aliases: ["formacion docente", "profesores", "cursos"] },
+          { id: "documentos-formacion", name: "Documentos de Formación", description: "Diagnóstico, plan de formación e informe de cumplimiento.", url: "https://jeffer91.github.io/docformacion/", icon: "report", aliases: ["dnf", "deteccion necesidades", "capacitacion", "plan"] }
+        ]
+      },
+      {
+        name: "Currículo y requisitos",
         apps: [
           { id: "curriculo", name: "Gestión Curricular", description: "Consulta y gestión de currículo, mallas, fichas y estadísticas.", url: "https://jeffer91.github.io/curriculo/", icon: "academic", aliases: ["curriculo", "mallas", "materias", "carreras"] },
-          { id: "capacitacion", name: "Capacitación Docente", description: "Organización y seguimiento de la capacitación docente.", url: "https://capacitacindocenteitsqmet.netlify.app/index.html", icon: "training", aliases: ["formacion docente", "profesores", "cursos"] },
-          { id: "documentos-formacion", name: "Documentos de Formación", description: "Diagnóstico, plan de formación e informe de cumplimiento.", url: "https://jeffer91.github.io/docformacion/", icon: "report", aliases: ["dnf", "deteccion necesidades", "capacitacion", "plan"] },
           { id: "requisitos", name: "Requisitos Académicos", description: "Carga, revisión y gestión de requisitos de titulación.", url: "https://jeffer91.github.io/requisitos/Maqueta/maq-index.html", icon: "checklist", aliases: ["requisitos", "habilitados", "documentos", "revision", "cumplimiento"] }
         ]
       }
@@ -100,6 +107,7 @@ const icons = {
   shield: '<svg viewBox="0 0 24 24"><path d="m12 3 7 3v5.5c0 4.6-2.7 7.6-7 9.5-4.3-1.9-7-4.9-7-9.5V6l7-3Zm-3 9 2 2 4-4"/></svg>',
   calendar: '<svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h3M14 14h3M8 18h3"/></svg>',
   training: '<svg viewBox="0 0 24 24"><path d="M4 4h16v13H4zM9 21h6M12 17v4M8 9h8M8 12h5"/></svg>',
+  survey: '<svg viewBox="0 0 24 24"><path d="M8 4h8l1 2h3v15H4V6h3l1-2Z"/><path d="M8 11h3M8 15h3M14 11h3M14 15h3"/></svg>',
   checklist: '<svg viewBox="0 0 24 24"><path d="M6 4h12v16H6zM9 9l1.5 1.5L13 8M14.5 9H16M9 15h7"/></svg>',
   scan: '<svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 12h8M10 9h4M10 15h4"/></svg>',
   code: '<svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>',
@@ -109,17 +117,18 @@ const icons = {
 };
 
 const quickAccess = [
-  { id: "sede-estudiantes", title: "Elegir sede", subtitle: "Examen Complexivo", mark: "Trámite estudiantil" },
-  { id: "titulo-articulo", title: "Registrar título", subtitle: "Artículo académico", mark: "Estudiantes" },
-  { id: "requisitos", title: "Requisitos", subtitle: "Consulta y revisión", mark: "Gestión" },
-  { id: "planificacion", title: "Planificación", subtitle: "Cronogramas de titulación", mark: "Coordinación" }
+  { id: "sede-estudiantes", title: "Elegir sede", subtitle: "Examen Complexivo", mark: "Estudiantes", tone: "blue" },
+  { id: "titulo-articulo", title: "Registrar título", subtitle: "Artículo académico", mark: "Titulación", tone: "purple" },
+  { id: "requisitos", title: "Requisitos", subtitle: "Revisión académica", mark: "Gestión", tone: "teal" },
+  { id: "planificacion", title: "Planificación", subtitle: "Cronogramas", mark: "Coordinación", tone: "gold" },
+  { id: "encuesta-formacion", title: "Encuesta docente", subtitle: "Necesidades de capacitación", mark: "Formación", tone: "orange" }
 ];
 
 const byId = new Map();
 const allApps = groups.flatMap(group =>
   group.sections.flatMap(section => section.apps.map(app => {
     if (byId.has(app.id)) throw new Error("ID duplicado en catálogo: " + app.id);
-    const item = { ...app, group: group.name, section: section.name };
+    const item = { ...app, group: group.name, groupId: group.id, section: section.name };
     byId.set(app.id, item);
     return item;
   }))
@@ -161,7 +170,7 @@ function iconFor(name) { return icons[name] || icons.document; }
 function appRow(app, searchMode = false) {
   const badge = app.badge ? '<span class="route__badge">' + escapeHtml(app.badge) + '</span>' : "";
   const category = searchMode ? '<span class="route__category">' + escapeHtml(app.group) + '</span>' : "";
-  return '<a class="route" href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener noreferrer">' +
+  return '<a class="route route--' + escapeHtml(app.groupId) + '" href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener noreferrer">' +
     '<span class="route__icon" aria-hidden="true">' + iconFor(app.icon) + '</span>' +
     '<span class="route__body"><span class="route__heading"><strong>' + escapeHtml(app.name) +
     '</strong>' + badge + '</span><span class="route__description">' + escapeHtml(app.description) +
@@ -172,7 +181,7 @@ function renderQuickAccess() {
   quickGrid.innerHTML = quickAccess.map(item => {
     const app = byId.get(item.id);
     if (!app) return "";
-    return '<a class="quick-card' + (item.id === "sede-estudiantes" ? ' quick-card--primary' : '') +
+    return '<a class="quick-card quick-card--' + escapeHtml(item.tone) +
       '" href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener noreferrer">' +
       '<span class="quick-card__icon" aria-hidden="true">' + iconFor(app.icon) + '</span>' +
       '<span class="quick-card__body"><span class="quick-card__tag">' + escapeHtml(item.mark) +
