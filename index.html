@@ -4,49 +4,61 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0f1720" />
-  <meta name="description" content="Portal central de aplicaciones ITSQMET." />
+  <meta name="description" content="Portal de aplicaciones ITSQMET: titulación, elección de sede del Examen Complexivo, requisitos y gestión académica." />
   <title>ITSQMET | Portal de Aplicaciones</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="accordion.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="shell topbar__inner">
-      <a class="brand" href="#inicio" aria-label="ITSQMET - Inicio">
+      <a class="brand" href="#inicio" aria-label="ITSQMET: volver al inicio">
         <img class="brand__logo" src="assets/logo-itsqmet.webp" alt="ITSQMET" />
       </a>
-
       <div class="search" role="search">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
-        <input id="search-input" type="search" placeholder="Buscar aplicación..." autocomplete="off" aria-label="Buscar aplicación" />
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+        <input id="search-input" type="search" placeholder="Buscar aplicación o trámite (ej. sede, complexivo)" autocomplete="off" aria-label="Buscar aplicación o trámite" />
         <button id="search-clear" class="search__clear" type="button" aria-label="Limpiar búsqueda" hidden>×</button>
       </div>
-
-      <div class="topbar__meta">
-        <strong id="app-count">20</strong>
-        <span>accesos</span>
-      </div>
+      <div class="topbar__meta"><strong id="app-count">0</strong><span>aplicaciones</span></div>
     </div>
   </header>
 
   <main id="inicio" class="shell workspace">
     <div class="page-head">
-      <div>
-        <span class="eyebrow">Portal institucional</span>
-        <h1>Aplicaciones ITSQMET</h1>
+      <span class="eyebrow">PORTAL INSTITUCIONAL</span>
+      <h1>Aplicaciones ITSQMET</h1>
+      <p>Encuentra rápidamente el servicio que necesitas.</p>
+    </div>
+
+    <section id="quick-access" class="quick-access" aria-labelledby="quick-title">
+      <div class="section-head">
+        <div>
+          <span class="section-head__eyebrow">Ir directamente</span>
+          <h2 id="quick-title">Accesos rápidos</h2>
+        </div>
+        <span class="section-head__helper">Trámites de uso frecuente</span>
       </div>
-      <p id="results-note" class="results-note" aria-live="polite"></p>
-    </div>
+      <div id="quick-grid" class="quick-grid"></div>
+    </section>
 
-    <section id="group-grid" class="group-grid" aria-label="Áreas de aplicaciones"></section>
-
-    <div class="empty-state" id="empty-state" hidden>
-      <strong>No encontramos esa aplicación</strong>
-      <span>Prueba con otro nombre.</span>
-    </div>
+    <section class="catalog" aria-labelledby="catalog-heading">
+      <div class="section-head section-head--catalog">
+        <div>
+          <span class="section-head__eyebrow">Explorar</span>
+          <h2 id="catalog-heading">Todas las aplicaciones</h2>
+        </div>
+        <p id="results-note" class="results-note" aria-live="polite"></p>
+      </div>
+      <div id="group-grid" class="group-grid" aria-label="Áreas de aplicaciones"></div>
+      <div id="search-results" class="search-results" aria-label="Aplicaciones encontradas" hidden></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <strong>No encontramos aplicaciones con ese término.</strong>
+        <span>Prueba con palabras como «sede», «título», «complexivo» o «requisitos».</span>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -55,9 +67,6 @@
       <span>Acceso centralizado</span>
     </div>
   </footer>
-
   <script src="app.js"></script>
-  <script src="catalogo-extra.js"></script>
-  <script src="accordion.js"></script>
 </body>
 </html>

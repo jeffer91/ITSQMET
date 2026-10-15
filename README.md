@@ -1,70 +1,63 @@
 # ITSQMET · Portal de Aplicaciones
 
-Portal central para acceder de forma ordenada a las aplicaciones institucionales de ITSQMET.
+Portal institucional para acceder de forma rápida a los sistemas ITSQMET.
 
-## Estructura actual
+## Organización actual
 
-El portal organiza **20 accesos en 6 áreas principales**, presentadas como acordeones:
+**20 aplicaciones únicas en 4 áreas principales:**
 
-- **Entrega de títulos**
-  - Registro de propuestas para estudiantes
-  - Revisión institucional
-- **Documentación y planificación de titulación**
-  - Planificación de Examen Complexivo, Trabajo de Titulación y Artículo Académico
-  - Elección de sede del Examen Complexivo (Estudiantes y Administrador)
-- **Informes de titulación**
-  - Generador de Informes de Titulación
-- **Gestión académica**
-  - Currículo
-  - Formación docente
-  - Requisitos académicos
-- **Club de fútbol**
-  - Portal principal
-  - Inscripción
-  - Estudiantes
-  - Árbitro
-  - Administrador
-- **Herramientas académicas**
-  - Antiplagio
+1. Estudiantes (3): elección de sede del Examen Complexivo, título de artículo académico y título de trabajo de titulación.
+2. Titulación y coordinación (6): revisión de títulos, administración de títulos, planificación, administración de sedes e informes.
+3. Gestión académica y docente (4): currículo, capacitación, documentos de formación y requisitos académicos.
+4. Otros servicios (7): antiplagio y Club de Fútbol.
 
-La sección de Entrega de títulos se abre por defecto. Al abrir otra área, la anterior se cierra. Durante una búsqueda se muestran abiertas las áreas que contienen coincidencias.
+El apartado **Accesos rápidos** muestra cuatro enlaces directos a aplicaciones del catálogo (elegir sede, registrar título, requisitos, planificación). Estos accesos **no se cuentan dos veces**.
 
-## Agregar o editar una aplicación
+La búsqueda muestra **resultados directos**, sin acordeones, y admite varias palabras, tildes y palabras alternativas indicadas en el campo \`aliases\` de cada aplicación (p. ej., «campus», «sede», «lugar de examen»).
 
-Las áreas principales existentes se administran desde `app.js`. Las áreas incorporadas posteriormente de planificación y Club de Fútbol se encuentran en `catalogo-extra.js`.
+Al navegar por categorías, solo hay un acordeón abierto a la vez. El apartado Estudiantes se abre por defecto.
 
-Cada aplicación utiliza una estructura como esta:
+## Cómo agregar o editar aplicaciones
 
-```js
+Los 20 accesos y los íconos se administran en un único lugar: \`app.js\`, variable \`groups\`.
+
+Cada aplicación tiene esta forma:
+
+\`\`\`js
 {
-  name: "Nombre de la aplicación",
+  id: "identificador-unico",
+  name: "Nombre visible",
   description: "Descripción breve",
   url: "https://...",
   icon: "document",
-  badge: "Opcional"
+  badge: "Opcional",
+  aliases: ["otro nombre", "palabra alternativa"]
 }
-```
+\`\`\`
 
-## Paleta visual
+El contador se calcula automáticamente desde \`groups\`. Para incluir una aplicación en Accesos rápidos, agrega su \`id\` a \`quickAccess\` (no la dupliques en \`groups\`).
 
-- Azul oscuro institucional: `#0F1720`
-- Dorado principal: `#B78A2F`
-- Dorado oscuro: `#8F6A1F`
-- Blanco: `#FFFFFF`
-- Gris de fondo: `#F8FAFC`
-- Gris de bordes: `#E5E7EB`
+## Identidad visual
 
-## Estructura del repositorio
+- Azul oscuro: \`#0F1720\`
+- Dorado principal: \`#B78A2F\`
+- Dorado oscuro: \`#8F6A1F\`
+- Blanco: \`#FFFFFF\`
+- Fondo gris: \`#F8FAFC\`
+- Tipografía: DM Sans, Playfair Display para el título principal
 
-```text
+## Archivos activos
+
+\`\`\`text
 ITSQMET/
 ├── index.html
 ├── styles.css
 ├── app.js
-├── catalogo-extra.js
-├── accordion.css
-├── accordion.js
 ├── .nojekyll
 └── assets/
     └── logo-itsqmet.webp
-```
+\`\`\`
+
+Los archivos anteriores \`catalogo-extra.js\`, \`accordion.js\` y \`accordion.css\` pueden conservarse en el historial, pero el portal ya no los carga: su lógica está unificada en \`app.js\` y \`styles.css\`.
+
+Los accesos externos abren una nueva pestaña.
