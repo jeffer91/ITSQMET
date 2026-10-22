@@ -1,95 +1,91 @@
-/* Catálogo único de aplicaciones ITSQMET.
-   Los accesos rápidos apuntan a registros de este catálogo: nunca suman duplicados. */
+/* Catálogo organizado por procesos institucionales, no por perfiles de usuario. */
 const groups = [
   {
-    id: "estudiantes",
-    name: "Estudiantes",
-    icon: "student",
-    description: "Trámites y consultas para estudiantes",
-    featured: true,
+    id: "titulos", name: "Propuestas y aprobación de títulos", icon: "graduation", description: "Registro, revisión y aprobación de propuestas",
     sections: [
-      {
-        name: "Titulación estudiantil",
-        description: "Accede directamente a tus trámites de titulación",
-        apps: [
-          { id: "sede-estudiantes", name: "Elegir sede del Examen Complexivo", description: "Selecciona la sede donde rendirás el Examen Complexivo.", url: "https://jeffer91.github.io/sedes/estudiante/", icon: "location", badge: "Examen Complexivo", aliases: ["sede", "sedes", "campus", "donde rindo", "lugar de examen", "seleccionar sede", "elegir sede", "complexivo estudiante"] },
-          { id: "titulo-articulo", name: "Título de Artículo Académico", description: "Registra y consulta tu propuesta de título de artículo académico.", url: "https://jeffer91.github.io/titulos/estudiantes/estudiante.html", icon: "article", badge: "Estudiantes", aliases: ["presentar titulo", "propuesta articulo", "investigacion formativa"] },
-          { id: "titulo-trabajo", name: "Título de Trabajo de Titulación", description: "Registra y consulta tu propuesta de trabajo de titulación.", url: "https://titulos.pages.dev/trabajo-titulacion/", icon: "document", badge: "Estudiantes", aliases: ["propuesta", "proyecto", "trabajo de grado"] }
-        ]
-      }
+      { name: "Registro de propuestas", apps: [
+        { id: "titulo-articulo", name: "Título de Artículo Académico", description: "Registra y consulta tu propuesta de título de artículo académico.", url: "https://jeffer91.github.io/titulos/estudiantes/estudiante.html", icon: "article", badge: "Estudiantes", aliases: ["presentar titulo", "propuesta articulo", "investigacion formativa"] },
+        { id: "titulo-trabajo", name: "Título de Trabajo de Titulación", description: "Registra y consulta tu propuesta de trabajo de titulación.", url: "https://titulos.pages.dev/trabajo-titulacion/", icon: "document", badge: "Estudiantes", aliases: ["propuesta", "proyecto", "trabajo de grado"] },
+      ] },
+      { name: "Revisión y aprobación", apps: [
+        { id: "revision-coordinadores", name: "Revisión de Coordinadores", description: "Validación inicial de propuestas de títulos.", url: "https://jeffer91.github.io/titulos/coordinadores/coordinador.html", icon: "users", badge: "Coordinación", aliases: ["coordinador", "aprobar titulo"] },
+        { id: "revision-investigacion", name: "Revisión de Investigación", description: "Revisión y aprobación de propuestas por Investigación.", url: "https://jeffer91.github.io/titulos/investigadores/investigador.html", icon: "research", badge: "Investigación", aliases: ["investigador", "aprobar articulo"] },
+        { id: "admin-titulos", name: "Administración de Títulos", description: "Gestión, seguimiento e historial de propuestas.", url: "https://jeffer91.github.io/titulos/administradores/administrador.html", icon: "shield", badge: "Administración", aliases: ["administrador", "titulos", "historial"] },
+      ] }
     ]
   },
   {
-    id: "titulacion",
-    name: "Titulación y coordinación",
-    icon: "graduation",
-    description: "Revisión de títulos, planificación y gestión de procesos",
+    id: "complexivo", name: "Examen Complexivo y planificación", icon: "calendar", description: "Sedes y cronogramas del proceso de titulación",
     sections: [
-      {
-        name: "Revisión de propuestas",
-        apps: [
-          { id: "revision-coordinadores", name: "Revisión de Coordinadores", description: "Validación inicial de propuestas de títulos.", url: "https://jeffer91.github.io/titulos/coordinadores/coordinador.html", icon: "users", badge: "Coordinación", aliases: ["coordinador", "aprobar titulo"] },
-          { id: "revision-investigacion", name: "Revisión de Investigación", description: "Revisión y aprobación de propuestas por Investigación.", url: "https://jeffer91.github.io/titulos/investigadores/investigador.html", icon: "research", badge: "Investigación", aliases: ["investigador", "aprobar articulo"] },
-          { id: "admin-titulos", name: "Administración de Títulos", description: "Gestión, seguimiento e historial de propuestas.", url: "https://jeffer91.github.io/titulos/administradores/administrador.html", icon: "shield", badge: "Administración", aliases: ["administrador", "titulos", "historial"] }
-        ]
-      },
-      {
-        name: "Planificación y gestión",
-        apps: [
-          { id: "planificacion", name: "Planificación de Titulación", description: "Cronogramas para Complexivo, Trabajo de Titulación y Artículo Académico.", url: "https://jeffer91.github.io/doc-tit/", icon: "calendar", badge: "Planificación", aliases: ["cronograma", "calendario", "fechas", "documentacion", "complexivo"] },
-          { id: "sede-admin", name: "Administrar sedes del Examen Complexivo", description: "Consulta y gestiona las sedes seleccionadas por estudiantes.", url: "https://jeffer91.github.io/sedes/administrador/", icon: "location", badge: "Administración", aliases: ["sede", "sedes", "campus", "seleccion sedes", "gestion de sedes", "complexivo administrador"] },
-          { id: "informes-titulacion", name: "Generador de Informes de Titulación", description: "Crea documentos e informes institucionales de titulación.", url: "https://jeffer91.github.io/Informtit/", icon: "report", badge: "Informes", aliases: ["informe", "reporte", "documentos"] }
-        ]
-      }
+      { name: "Sedes del examen", apps: [
+        { id: "sede-estudiantes", name: "Elegir sede del Examen Complexivo", description: "Selecciona la sede donde rendirás el Examen Complexivo.", url: "https://jeffer91.github.io/sedes/estudiante/", icon: "location", badge: "Examen Complexivo", aliases: ["sede", "sedes", "campus", "donde rindo", "lugar de examen", "seleccionar sede", "elegir sede", "complexivo estudiante"] },
+        { id: "sede-admin", name: "Administrar sedes del Examen Complexivo", description: "Consulta y gestiona las sedes seleccionadas por estudiantes.", url: "https://jeffer91.github.io/sedes/administrador/", icon: "location", badge: "Administración", aliases: ["sede", "sedes", "campus", "seleccion sedes", "gestion de sedes", "complexivo administrador"] },
+      ] },
+      { name: "Planificación", apps: [
+        { id: "planificacion", name: "Planificación de Titulación", description: "Cronogramas para Complexivo, Trabajo de Titulación y Artículo Académico.", url: "https://jeffer91.github.io/doc-tit/", icon: "calendar", badge: "Planificación", aliases: ["cronograma", "calendario", "fechas", "documentacion", "complexivo"] },
+      ] }
     ]
   },
   {
-    id: "academica",
-    name: "Gestión académica y docente",
-    icon: "academic",
-    description: "Encuestas, capacitación, currículo y requisitos",
+    id: "seguimiento", name: "Requisitos e informes de titulación", icon: "report", description: "Validación documental y reportes institucionales",
     sections: [
-      {
-        name: "Detección de formación y capacitación",
-        apps: [
-          { id: "encuesta-formacion", name: "Encuesta de Formación y Capacitación", description: "Formulario docente para detectar necesidades de formación y capacitación.", url: "https://jeffer91.github.io/Encuesta-Form-Cap/", icon: "survey", badge: "Docentes", aliases: ["encuesta", "formulario", "formacion", "capacitacion", "deteccion", "necesidades", "diagnostico", "docente", "dnf"] },
-          { id: "encuesta-formacion-admin", name: "Administración de Encuesta Docente", description: "Panel para gestionar respuestas de la encuesta de detección de necesidades.", url: "https://jeffer91.github.io/Encuesta-Form-Cap/admin.html", icon: "shield", badge: "Administración", aliases: ["encuesta", "formacion", "capacitacion", "deteccion", "necesidades", "respuestas", "estadisticas", "panel", "admin", "docente"] },
-          { id: "capacitacion", name: "Capacitación Docente", description: "Organización y seguimiento de la capacitación docente.", url: "https://capacitacindocenteitsqmet.netlify.app/index.html", icon: "training", aliases: ["formacion docente", "profesores", "cursos"] },
-          { id: "documentos-formacion", name: "Documentos de Formación", description: "Diagnóstico, plan de formación e informe de cumplimiento.", url: "https://jeffer91.github.io/docformacion/", icon: "report", aliases: ["dnf", "deteccion necesidades", "capacitacion", "plan"] }
-        ]
-      },
-      {
-        name: "Currículo y requisitos",
-        apps: [
-          { id: "curriculo", name: "Gestión Curricular", description: "Consulta y gestión de currículo, mallas, fichas y estadísticas.", url: "https://jeffer91.github.io/curriculo/", icon: "academic", aliases: ["curriculo", "mallas", "materias", "carreras"] },
-          { id: "requisitos", name: "Requisitos Académicos", description: "Carga, revisión y gestión de requisitos de titulación.", url: "https://jeffer91.github.io/requisitos/Maqueta/maq-index.html", icon: "checklist", aliases: ["requisitos", "habilitados", "documentos", "revision", "cumplimiento"] }
-        ]
-      }
+      { name: "Gestión y seguimiento", apps: [
+        { id: "requisitos", name: "Requisitos Académicos", description: "Carga, revisión y gestión de requisitos de titulación.", url: "https://jeffer91.github.io/requisitos/Maqueta/maq-index.html", icon: "checklist", aliases: ["requisitos", "habilitados", "documentos", "revision", "cumplimiento"] },
+        { id: "informes-titulacion", name: "Generador de Informes de Titulación", description: "Crea documentos e informes institucionales de titulación.", url: "https://jeffer91.github.io/Informtit/", icon: "report", badge: "Informes", aliases: ["informe", "reporte", "documentos"] },
+      ] }
     ]
   },
   {
-    id: "otros",
-    name: "Otros servicios",
-    icon: "tools",
-    description: "Herramientas académicas y Club de Fútbol ITSQMET",
+    id: "curricular", name: "Gestión curricular", icon: "academic", description: "Mallas, fichas y organización académica",
     sections: [
-      {
-        name: "Herramientas académicas",
-        apps: [
-          { id: "antiplagio", name: "Aplicación Antiplagio", description: "Sistema de revisión antiplagio.", url: "https://jeffer91.github.io/Antiplagio-ITSQMET/", icon: "scan", aliases: ["plagio", "revisor", "similitud"] },
-          { id: "antiplagio-repo", name: "Repositorio Antiplagio", description: "Código fuente y mantenimiento en GitHub.", url: "https://github.com/jeffer91/Antiplagio-ITSQMET", icon: "code", badge: "GitHub", aliases: ["antiplagio fuente", "codigo"] }
-        ]
-      },
-      {
-        name: "Club de fútbol",
-        apps: [
-          { id: "club", name: "Club de Fútbol", description: "Portal principal del campeonato institucional.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/", icon: "football", badge: "Principal", aliases: ["campeonato", "torneo"] },
-          { id: "club-inscripcion", name: "Inscripción al Club de Fútbol", description: "Registro de equipos y participantes.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/inscripcion/", icon: "checklist", badge: "Inscripción", aliases: ["inscribir", "registrar equipo"] },
-          { id: "club-estudiantes", name: "Estudiantes - Club de Fútbol", description: "Consultas y acceso de participantes.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/estudiantes/", icon: "student", badge: "Estudiantes", aliases: ["campeonato participantes"] },
-          { id: "club-arbitro", name: "Árbitro - Club de Fútbol", description: "Gestión de partidos, resultados y novedades.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/arbitro/", icon: "whistle", badge: "Árbitro", aliases: ["arbitraje", "partidos"] },
-          { id: "club-admin", name: "Administrador - Club de Fútbol", description: "Administración general del campeonato.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/administrador/", icon: "shield", badge: "Administración", aliases: ["torneo gestion"] }
-        ]
-      }
+      { name: "Currículo", apps: [
+        { id: "curriculo", name: "Gestión Curricular", description: "Consulta y gestión de currículo, mallas, fichas y estadísticas.", url: "https://jeffer91.github.io/curriculo/", icon: "academic", aliases: ["curriculo", "mallas", "materias", "carreras"] },
+      ] }
+    ]
+  },
+  {
+    id: "formacion", name: "Formación y capacitación docente", icon: "training", description: "Detección, planificación y seguimiento de la capacitación",
+    sections: [
+      { name: "Necesidades de capacitación", apps: [
+        { id: "encuesta-formacion", name: "Encuesta de Formación y Capacitación", description: "Formulario docente para detectar necesidades de formación y capacitación.", url: "https://jeffer91.github.io/Encuesta-Form-Cap/", icon: "survey", badge: "Docentes", aliases: ["encuesta", "formulario", "formacion", "capacitacion", "deteccion", "necesidades", "diagnostico", "docente", "dnf"] },
+        { id: "encuesta-formacion-admin", name: "Administración de Encuesta Docente", description: "Panel para gestionar respuestas de la encuesta de detección de necesidades.", url: "https://jeffer91.github.io/Encuesta-Form-Cap/admin.html", icon: "shield", badge: "Administración", aliases: ["encuesta", "formacion", "capacitacion", "deteccion", "necesidades", "respuestas", "estadisticas", "panel", "admin", "docente"] },
+      ] },
+      { name: "Plan e implementación", apps: [
+        { id: "capacitacion", name: "Capacitación Docente", description: "Organización y seguimiento de la capacitación docente.", url: "https://capacitacindocenteitsqmet.netlify.app/index.html", icon: "training", aliases: ["formacion docente", "profesores", "cursos"] },
+        { id: "documentos-formacion", name: "Documentos de Formación", description: "Diagnóstico, plan de formación e informe de cumplimiento.", url: "https://jeffer91.github.io/docformacion/", icon: "report", aliases: ["dnf", "deteccion necesidades", "capacitacion", "plan"] },
+      ] }
+    ]
+  },
+  {
+    id: "financiera", name: "Hojas financieras", icon: "document", description: "Registro de clases, documentos firmados y aprobación",
+    sections: [
+      { name: "Registro de clases", apps: [
+        { id: "hoja-financiera-docente", name: "Formulario de Hoja Financiera", description: "Registrar clases, descargar el PDF y subirlo firmado.", url: "https://jeffer91.github.io/Hoja-Financiera/", icon: "document", badge: "Formulario", aliases: ["hoja financiera", "financiero", "registro de clases", "firma docente", "subir firmado", "pdf"] },
+      ] },
+      { name: "Revisión de hojas financieras", apps: [
+        { id: "hoja-financiera-admin", name: "Administración de Hojas Financieras", description: "Consultar documentos firmados, revisar, devolver y aprobar.", url: "https://jeffer91.github.io/Hoja-Financiera/administrador/", icon: "shield", badge: "Administración", aliases: ["hoja financiera", "financiero", "aprobar", "devolver", "documentos firmados", "revision"] },
+      ] }
+    ]
+  },
+  {
+    id: "integridad", name: "Integridad académica", icon: "scan", description: "Revisión antiplagio y mantenimiento",
+    sections: [
+      { name: "Herramientas antiplagio", apps: [
+        { id: "antiplagio", name: "Aplicación Antiplagio", description: "Sistema de revisión antiplagio.", url: "https://jeffer91.github.io/Antiplagio-ITSQMET/", icon: "scan", aliases: ["plagio", "revisor", "similitud"] },
+        { id: "antiplagio-repo", name: "Repositorio Antiplagio", description: "Código fuente y mantenimiento en GitHub.", url: "https://github.com/jeffer91/Antiplagio-ITSQMET", icon: "code", badge: "GitHub", aliases: ["antiplagio fuente", "codigo"] },
+      ] }
+    ]
+  },
+  {
+    id: "deportes", name: "Deporte institucional", icon: "football", description: "Campeonatos, participantes y arbitraje",
+    sections: [
+      { name: "Club de fútbol", apps: [
+        { id: "club", name: "Club de Fútbol", description: "Portal principal del campeonato institucional.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/", icon: "football", badge: "Principal", aliases: ["campeonato", "torneo"] },
+        { id: "club-inscripcion", name: "Inscripción al Club de Fútbol", description: "Registro de equipos y participantes.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/inscripcion/", icon: "checklist", badge: "Inscripción", aliases: ["inscribir", "registrar equipo"] },
+        { id: "club-estudiantes", name: "Estudiantes - Club de Fútbol", description: "Consultas y acceso de participantes.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/estudiantes/", icon: "student", badge: "Estudiantes", aliases: ["campeonato participantes"] },
+        { id: "club-arbitro", name: "Árbitro - Club de Fútbol", description: "Gestión de partidos, resultados y novedades.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/arbitro/", icon: "whistle", badge: "Árbitro", aliases: ["arbitraje", "partidos"] },
+        { id: "club-admin", name: "Administrador - Club de Fútbol", description: "Administración general del campeonato.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/administrador/", icon: "shield", badge: "Administración", aliases: ["torneo gestion"] },
+      ] }
     ]
   }
 ];
