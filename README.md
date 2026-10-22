@@ -1,66 +1,32 @@
 # ITSQMET · Portal de Aplicaciones
 
-Portal institucional para acceder de forma rápida a los sistemas ITSQMET.
+Portal institucional organizado por **procesos**, no por perfiles o tipos de usuario.
 
-## Organización actual
+## Catálogo actual: 24 aplicaciones en 8 procesos
 
-**22 aplicaciones únicas en 4 áreas principales:**
+1. **Propuestas y aprobación de títulos (5):** título de artículo académico, título de trabajo de titulación, revisión de coordinadores, revisión de investigación y administración de títulos.
+2. **Examen Complexivo y planificación (3):** elección de sede, administración de sedes y planificación de titulación.
+3. **Requisitos e informes de titulación (2):** requisitos académicos y generador de informes.
+4. **Gestión curricular (1):** currículo, mallas y fichas.
+5. **Formación y capacitación docente (4):** encuesta docente, panel de administración, capacitación docente y documentos de formación.
+6. **Hojas financieras (2):** formulario de registro de clases (https://jeffer91.github.io/Hoja-Financiera/) y administración de documentos firmados (https://jeffer91.github.io/Hoja-Financiera/administrador/).
+7. **Integridad académica (2):** antiplagio y su repositorio.
+8. **Deporte institucional (5):** portal del club, inscripción, consulta de estudiantes, árbitros y administración.
 
-1. Estudiantes (3): elección de sede del Examen Complexivo, título de artículo académico y título de trabajo de titulación.
-2. Titulación y coordinación (6): revisión de títulos, administración de títulos, planificación, administración de sedes e informes.
-3. Gestión académica y docente (6): encuesta de detección de necesidades de formación y capacitación (formulario y administración), currículo, capacitación, documentos de formación y requisitos académicos.
-4. Otros servicios (7): antiplagio y Club de Fútbol.
+## Mantenimiento del catálogo
 
-El apartado **Accesos rápidos** muestra cinco enlaces directos a aplicaciones del catálogo (elegir sede, registrar título, requisitos, planificación y encuesta docente). Estos accesos **no se cuentan dos veces**.
+El catálogo vive en `app.js`, variable `groups`. Cada grupo representa un proceso y contiene secciones y aplicaciones. La distinción entre formularios y paneles de administración aparece dentro del mismo proceso.
 
-La búsqueda muestra **resultados directos**, sin acordeones, y admite varias palabras, tildes y palabras alternativas indicadas en el campo `aliases` de cada aplicación (p. ej., «campus», «sede», «lugar de examen»).
+El contador se calcula automáticamente desde `groups`. Los cinco accesos rápidos apuntan a las mismas aplicaciones mediante su `id` y no cuentan como duplicados.
 
-Al navegar por categorías, solo hay un acordeón abierto a la vez. El apartado Estudiantes se abre por defecto.
-
-## Cómo agregar o editar aplicaciones
-
-Los 22 accesos y los íconos se administran en un único lugar: `app.js`, variable `groups`.
-
-Cada aplicación tiene esta forma:
-
-```js
-{
-  id: "identificador-unico",
-  name: "Nombre visible",
-  description: "Descripción breve",
-  url: "https://...",
-  icon: "document",
-  badge: "Opcional",
-  aliases: ["otro nombre", "palabra alternativa"]
-}
-```
-
-El contador se calcula automáticamente desde `groups`. Para incluir una aplicación en Accesos rápidos, agrega su `id` a `quickAccess` (no la dupliques en `groups`).
-
-## Identidad visual
-
-El diseño compacto diferencia visualmente las áreas por tonos: azul (estudiantes), violeta (titulación), verde azulado (gestión docente) y dorado (otros servicios). Los accesos rápidos usan color de fondo suave y contraste de texto. 
-
-
-- Azul oscuro: `#0F1720`
-- Dorado principal: `#B78A2F`
-- Dorado oscuro: `#8F6A1F`
-- Blanco: `#FFFFFF`
-- Fondo gris: `#F8FAFC`
-- Tipografía: DM Sans, Playfair Display para el título principal
+El buscador acepta palabras, variantes sin tilde y términos incluidos en `aliases`. Los enlaces externos se abren en pestaña nueva. Las aplicaciones enlazadas son independientes del portal.
 
 ## Archivos activos
 
-```text
-ITSQMET/
-├── index.html
-├── styles.css
-├── app.js
-├── .nojekyll
-└── assets/
-    └── logo-itsqmet.webp
-```
+- `index.html`: estructura del portal y referencias a CSS y JS.
+- `styles.css`: presentación visual.
+- `app.js`: catálogo, búsqueda, accesos rápidos y acordeones.
+- `.nojekyll`: publicación estática en GitHub Pages.
+- `assets/logo-itsqmet.webp`: identidad institucional.
 
-Los archivos anteriores `catalogo-extra.js`, `accordion.js` y `accordion.css` pueden conservarse en el historial, pero el portal ya no los carga: su lógica está unificada en `app.js` y `styles.css`.
-
-Los accesos externos abren una nueva pestaña.
+`catalogo-extra.js`, `accordion.js` y `accordion.css` son archivos antiguos que el HTML actual no carga.
