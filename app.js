@@ -1,91 +1,390 @@
-/* Catálogo organizado por procesos institucionales, no por perfiles de usuario. */
-const groups = [
+/* Portal ITSQMET: catálogo único, tarjetas y búsqueda global. */
+const areas = [
   {
-    id: "titulos", name: "Propuestas y aprobación de títulos", icon: "graduation", description: "Registro, revisión y aprobación de propuestas",
-    sections: [
-      { name: "Registro de propuestas", apps: [
-        { id: "titulo-articulo", name: "Título de Artículo Académico", description: "Registra y consulta tu propuesta de título de artículo académico.", url: "https://jeffer91.github.io/titulos/estudiantes/estudiante.html", icon: "article", badge: "Estudiantes", aliases: ["presentar titulo", "propuesta articulo", "investigacion formativa"] },
-        { id: "titulo-trabajo", name: "Título de Trabajo de Titulación", description: "Registra y consulta tu propuesta de trabajo de titulación.", url: "https://titulos.pages.dev/trabajo-titulacion/", icon: "document", badge: "Estudiantes", aliases: ["propuesta", "proyecto", "trabajo de grado"] },
-      ] },
-      { name: "Revisión y aprobación", apps: [
-        { id: "revision-coordinadores", name: "Revisión de Coordinadores", description: "Validación inicial de propuestas de títulos.", url: "https://jeffer91.github.io/titulos/coordinadores/coordinador.html", icon: "users", badge: "Coordinación", aliases: ["coordinador", "aprobar titulo"] },
-        { id: "revision-investigacion", name: "Revisión de Investigación", description: "Revisión y aprobación de propuestas por Investigación.", url: "https://jeffer91.github.io/titulos/investigadores/investigador.html", icon: "research", badge: "Investigación", aliases: ["investigador", "aprobar articulo"] },
-        { id: "admin-titulos", name: "Administración de Títulos", description: "Gestión, seguimiento e historial de propuestas.", url: "https://jeffer91.github.io/titulos/administradores/administrador.html", icon: "shield", badge: "Administración", aliases: ["administrador", "titulos", "historial"] },
-      ] }
+    "id": "titulos",
+    "name": "Títulos",
+    "description": "Propuestas, revisión y aprobación",
+    "icon": "graduation",
+    "apps": [
+      {
+        "id": "titulo-articulo",
+        "name": "Artículo académico",
+        "description": "Registrar y consultar propuestas.",
+        "icon": "article",
+        "url": "https://jeffer91.github.io/titulos/estudiantes/estudiante.html",
+        "aliases": [
+          "titulo",
+          "propuesta",
+          "investigacion"
+        ]
+      },
+      {
+        "id": "titulo-trabajo",
+        "name": "Trabajo de titulación",
+        "description": "Registrar propuestas de titulación.",
+        "icon": "document",
+        "url": "https://titulos.pages.dev/trabajo-titulacion/",
+        "aliases": [
+          "tesis",
+          "proyecto"
+        ]
+      },
+      {
+        "id": "revision-coordinadores",
+        "name": "Coordinadores",
+        "description": "Validar propuestas recibidas.",
+        "icon": "users",
+        "url": "https://jeffer91.github.io/titulos/coordinadores/coordinador.html",
+        "aliases": [
+          "revision",
+          "aprobacion"
+        ]
+      },
+      {
+        "id": "revision-investigacion",
+        "name": "Investigación",
+        "description": "Revisar y aprobar propuestas.",
+        "icon": "research",
+        "url": "https://jeffer91.github.io/titulos/investigadores/investigador.html",
+        "aliases": [
+          "revision",
+          "investigadores"
+        ]
+      },
+      {
+        "id": "admin-titulos",
+        "name": "Administrar títulos",
+        "description": "Gestionar propuestas e historial.",
+        "icon": "shield",
+        "url": "https://jeffer91.github.io/titulos/administradores/administrador.html",
+        "aliases": [
+          "administracion",
+          "seguimiento"
+        ]
+      }
     ]
   },
   {
-    id: "complexivo", name: "Examen Complexivo y planificación", icon: "calendar", description: "Sedes y cronogramas del proceso de titulación",
-    sections: [
-      { name: "Sedes del examen", apps: [
-        { id: "sede-estudiantes", name: "Elegir sede del Examen Complexivo", description: "Selecciona la sede donde rendirás el Examen Complexivo.", url: "https://jeffer91.github.io/sedes/estudiante/", icon: "location", badge: "Examen Complexivo", aliases: ["sede", "sedes", "campus", "donde rindo", "lugar de examen", "seleccionar sede", "elegir sede", "complexivo estudiante"] },
-        { id: "sede-admin", name: "Administrar sedes del Examen Complexivo", description: "Consulta y gestiona las sedes seleccionadas por estudiantes.", url: "https://jeffer91.github.io/sedes/administrador/", icon: "location", badge: "Administración", aliases: ["sede", "sedes", "campus", "seleccion sedes", "gestion de sedes", "complexivo administrador"] },
-      ] },
-      { name: "Planificación", apps: [
-        { id: "planificacion", name: "Planificación de Titulación", description: "Cronogramas para Complexivo, Trabajo de Titulación y Artículo Académico.", url: "https://jeffer91.github.io/doc-tit/", icon: "calendar", badge: "Planificación", aliases: ["cronograma", "calendario", "fechas", "documentacion", "complexivo"] },
-      ] }
+    "id": "complexivo",
+    "name": "Complexivo",
+    "description": "Selección y gestión de sedes",
+    "icon": "calendar",
+    "apps": [
+      {
+        "id": "sede-estudiantes",
+        "name": "Elegir sede",
+        "description": "Seleccionar la sede de examen.",
+        "icon": "location",
+        "url": "https://jeffer91.github.io/sedes/estudiante/",
+        "aliases": [
+          "estudiantes",
+          "examen",
+          "campus"
+        ]
+      },
+      {
+        "id": "sede-admin",
+        "name": "Administrar sedes",
+        "description": "Gestionar sedes seleccionadas.",
+        "icon": "shield",
+        "url": "https://jeffer91.github.io/sedes/administrador/",
+        "aliases": [
+          "examen",
+          "administrador"
+        ]
+      }
     ]
   },
   {
-    id: "seguimiento", name: "Requisitos e informes de titulación", icon: "report", description: "Validación documental y reportes institucionales",
-    sections: [
-      { name: "Gestión y seguimiento", apps: [
-        { id: "requisitos", name: "Requisitos Académicos", description: "Carga, revisión y gestión de requisitos de titulación.", url: "https://jeffer91.github.io/requisitos/Maqueta/maq-index.html", icon: "checklist", aliases: ["requisitos", "habilitados", "documentos", "revision", "cumplimiento"] },
-        { id: "informes-titulacion", name: "Generador de Informes de Titulación", description: "Crea documentos e informes institucionales de titulación.", url: "https://jeffer91.github.io/Informtit/", icon: "report", badge: "Informes", aliases: ["informe", "reporte", "documentos"] },
-      ] }
+    "id": "titulacion",
+    "name": "Titulación",
+    "description": "Cronogramas, requisitos e informes",
+    "icon": "checklist",
+    "apps": [
+      {
+        "id": "planificacion",
+        "name": "Cronogramas",
+        "description": "Planificar los procesos de titulación.",
+        "icon": "calendar",
+        "url": "https://jeffer91.github.io/doc-tit/",
+        "aliases": [
+          "planificacion",
+          "fechas",
+          "complexivo"
+        ]
+      },
+      {
+        "id": "requisitos",
+        "name": "Requisitos",
+        "description": "Revisar requisitos académicos.",
+        "icon": "checklist",
+        "url": "https://jeffer91.github.io/requisitos/Maqueta/maq-index.html",
+        "aliases": [
+          "habilitados",
+          "documentacion"
+        ]
+      },
+      {
+        "id": "informes-titulacion",
+        "name": "Informes",
+        "description": "Generar informes de titulación.",
+        "icon": "report",
+        "url": "https://jeffer91.github.io/Informtit/",
+        "aliases": [
+          "documentos",
+          "reportes"
+        ]
+      }
     ]
   },
   {
-    id: "curricular", name: "Gestión curricular", icon: "academic", description: "Mallas, fichas y organización académica",
-    sections: [
-      { name: "Currículo", apps: [
-        { id: "curriculo", name: "Gestión Curricular", description: "Consulta y gestión de currículo, mallas, fichas y estadísticas.", url: "https://jeffer91.github.io/curriculo/", icon: "academic", aliases: ["curriculo", "mallas", "materias", "carreras"] },
-      ] }
+    "id": "curriculo",
+    "name": "Currículo",
+    "description": "Organización académica",
+    "icon": "academic",
+    "apps": [
+      {
+        "id": "curriculo",
+        "name": "Gestión curricular",
+        "description": "Consultar mallas, materias y fichas.",
+        "icon": "academic",
+        "url": "https://jeffer91.github.io/curriculo/",
+        "aliases": [
+          "mallas",
+          "carreras"
+        ]
+      }
     ]
   },
   {
-    id: "formacion", name: "Formación y capacitación docente", icon: "training", description: "Detección, planificación y seguimiento de la capacitación",
-    sections: [
-      { name: "Necesidades de capacitación", apps: [
-        { id: "encuesta-formacion", name: "Encuesta de Formación y Capacitación", description: "Formulario docente para detectar necesidades de formación y capacitación.", url: "https://jeffer91.github.io/Encuesta-Form-Cap/", icon: "survey", badge: "Docentes", aliases: ["encuesta", "formulario", "formacion", "capacitacion", "deteccion", "necesidades", "diagnostico", "docente", "dnf"] },
-        { id: "encuesta-formacion-admin", name: "Administración de Encuesta Docente", description: "Panel para gestionar respuestas de la encuesta de detección de necesidades.", url: "https://jeffer91.github.io/Encuesta-Form-Cap/admin.html", icon: "shield", badge: "Administración", aliases: ["encuesta", "formacion", "capacitacion", "deteccion", "necesidades", "respuestas", "estadisticas", "panel", "admin", "docente"] },
-      ] },
-      { name: "Plan e implementación", apps: [
-        { id: "capacitacion", name: "Capacitación Docente", description: "Organización y seguimiento de la capacitación docente.", url: "https://capacitacindocenteitsqmet.netlify.app/index.html", icon: "training", aliases: ["formacion docente", "profesores", "cursos"] },
-        { id: "documentos-formacion", name: "Documentos de Formación", description: "Diagnóstico, plan de formación e informe de cumplimiento.", url: "https://jeffer91.github.io/docformacion/", icon: "report", aliases: ["dnf", "deteccion necesidades", "capacitacion", "plan"] },
-      ] }
+    "id": "docentes",
+    "name": "Docentes",
+    "description": "Formación, capacitación y seguimiento",
+    "icon": "training",
+    "apps": [
+      {
+        "id": "encuesta-formacion",
+        "name": "Encuesta docente",
+        "description": "Registrar necesidades de capacitación.",
+        "icon": "survey",
+        "url": "https://jeffer91.github.io/Encuesta-Form-Cap/",
+        "aliases": [
+          "formacion",
+          "necesidades",
+          "formulario"
+        ]
+      },
+      {
+        "id": "encuesta-formacion-admin",
+        "name": "Resultados",
+        "description": "Consultar las respuestas de la encuesta.",
+        "icon": "report",
+        "url": "https://jeffer91.github.io/Encuesta-Form-Cap/admin.html",
+        "aliases": [
+          "encuesta",
+          "estadisticas",
+          "administracion"
+        ]
+      },
+      {
+        "id": "capacitacion",
+        "name": "Capacitación global",
+        "description": "Abrir el sistema general de capacitación.",
+        "icon": "training",
+        "url": "https://capacitacindocenteitsqmet.netlify.app/index.html",
+        "aliases": [
+          "docentes",
+          "formacion",
+          "principal"
+        ]
+      },
+      {
+        "id": "seguimiento-docente",
+        "name": "Seguimiento",
+        "description": "Elaborar documentos de seguimiento.",
+        "icon": "document",
+        "url": "https://capacitacindocenteitsqmet.netlify.app/pages/seguimientod/seguimiento",
+        "aliases": [
+          "documentos",
+          "capacitacion",
+          "docente"
+        ]
+      },
+      {
+        "id": "documentos-formacion",
+        "name": "Plan de formación",
+        "description": "Crear diagnósticos, planes e informes.",
+        "icon": "report",
+        "url": "https://jeffer91.github.io/docformacion/",
+        "aliases": [
+          "necesidades",
+          "capacitacion",
+          "documentos"
+        ]
+      }
     ]
   },
   {
-    id: "financiera", name: "Hojas financieras", icon: "document", description: "Registro de clases, documentos firmados y aprobación",
-    sections: [
-      { name: "Registro de clases", apps: [
-        { id: "hoja-financiera-docente", name: "Formulario de Hoja Financiera", description: "Registrar clases, descargar el PDF y subirlo firmado.", url: "https://jeffer91.github.io/Hoja-Financiera/", icon: "document", badge: "Formulario", aliases: ["hoja financiera", "financiero", "registro de clases", "firma docente", "subir firmado", "pdf"] },
-      ] },
-      { name: "Revisión de hojas financieras", apps: [
-        { id: "hoja-financiera-admin", name: "Administración de Hojas Financieras", description: "Consultar documentos firmados, revisar, devolver y aprobar.", url: "https://jeffer91.github.io/Hoja-Financiera/administrador/", icon: "shield", badge: "Administración", aliases: ["hoja financiera", "financiero", "aprobar", "devolver", "documentos firmados", "revision"] },
-      ] }
+    "id": "finanzas",
+    "name": "Finanzas",
+    "description": "Registro y revisión de clases",
+    "icon": "document",
+    "apps": [
+      {
+        "id": "hoja-financiera-docente",
+        "name": "Registrar clases",
+        "description": "Crear y entregar hojas financieras.",
+        "icon": "document",
+        "url": "https://jeffer91.github.io/Hoja-Financiera/",
+        "aliases": [
+          "hoja financiera",
+          "pdf"
+        ]
+      },
+      {
+        "id": "hoja-financiera-admin",
+        "name": "Revisar hojas",
+        "description": "Revisar o aprobar documentos.",
+        "icon": "shield",
+        "url": "https://jeffer91.github.io/Hoja-Financiera/administrador/",
+        "aliases": [
+          "hoja financiera",
+          "administrador"
+        ]
+      }
     ]
   },
   {
-    id: "integridad", name: "Integridad académica", icon: "scan", description: "Revisión antiplagio y mantenimiento",
-    sections: [
-      { name: "Herramientas antiplagio", apps: [
-        { id: "antiplagio", name: "Aplicación Antiplagio", description: "Sistema de revisión antiplagio.", url: "https://jeffer91.github.io/Antiplagio-ITSQMET/", icon: "scan", aliases: ["plagio", "revisor", "similitud"] },
-        { id: "antiplagio-repo", name: "Repositorio Antiplagio", description: "Código fuente y mantenimiento en GitHub.", url: "https://github.com/jeffer91/Antiplagio-ITSQMET", icon: "code", badge: "GitHub", aliases: ["antiplagio fuente", "codigo"] },
-      ] }
+    "id": "antiplagio",
+    "name": "Antiplagio",
+    "description": "Revisión académica",
+    "icon": "scan",
+    "apps": [
+      {
+        "id": "antiplagio",
+        "name": "Revisar similitud",
+        "description": "Abrir el sistema antiplagio.",
+        "icon": "scan",
+        "url": "https://jeffer91.github.io/Antiplagio-ITSQMET/",
+        "aliases": [
+          "plagio",
+          "originalidad"
+        ]
+      },
+      {
+        "id": "antiplagio-repo",
+        "name": "Código fuente",
+        "description": "Consultar el repositorio en GitHub.",
+        "icon": "code",
+        "url": "https://github.com/jeffer91/Antiplagio-ITSQMET",
+        "aliases": [
+          "github",
+          "mantenimiento"
+        ]
+      }
     ]
   },
   {
-    id: "deportes", name: "Deporte institucional", icon: "football", description: "Campeonatos, participantes y arbitraje",
-    sections: [
-      { name: "Club de fútbol", apps: [
-        { id: "club", name: "Club de Fútbol", description: "Portal principal del campeonato institucional.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/", icon: "football", badge: "Principal", aliases: ["campeonato", "torneo"] },
-        { id: "club-inscripcion", name: "Inscripción al Club de Fútbol", description: "Registro de equipos y participantes.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/inscripcion/", icon: "checklist", badge: "Inscripción", aliases: ["inscribir", "registrar equipo"] },
-        { id: "club-estudiantes", name: "Estudiantes - Club de Fútbol", description: "Consultas y acceso de participantes.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/estudiantes/", icon: "student", badge: "Estudiantes", aliases: ["campeonato participantes"] },
-        { id: "club-arbitro", name: "Árbitro - Club de Fútbol", description: "Gestión de partidos, resultados y novedades.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/arbitro/", icon: "whistle", badge: "Árbitro", aliases: ["arbitraje", "partidos"] },
-        { id: "club-admin", name: "Administrador - Club de Fútbol", description: "Administración general del campeonato.", url: "https://jeffer91.github.io/Club-futbol-ITSQMET-/administrador/", icon: "shield", badge: "Administración", aliases: ["torneo gestion"] },
-      ] }
+    "id": "deportes",
+    "name": "Deportes",
+    "description": "Club de fútbol institucional",
+    "icon": "football",
+    "apps": [
+      {
+        "id": "club",
+        "name": "Club de fútbol",
+        "description": "Abrir el portal del campeonato.",
+        "icon": "football",
+        "url": "https://jeffer91.github.io/Club-futbol-ITSQMET-/",
+        "aliases": [
+          "torneo",
+          "campeonato"
+        ]
+      },
+      {
+        "id": "club-inscripcion",
+        "name": "Inscripciones",
+        "description": "Registrar equipos y participantes.",
+        "icon": "checklist",
+        "url": "https://jeffer91.github.io/Club-futbol-ITSQMET-/inscripcion/",
+        "aliases": [
+          "registro",
+          "futbol"
+        ]
+      },
+      {
+        "id": "club-estudiantes",
+        "name": "Participantes",
+        "description": "Consultar información de estudiantes.",
+        "icon": "student",
+        "url": "https://jeffer91.github.io/Club-futbol-ITSQMET-/estudiantes/",
+        "aliases": [
+          "club",
+          "estudiantes"
+        ]
+      },
+      {
+        "id": "club-arbitro",
+        "name": "Árbitros",
+        "description": "Gestionar partidos y resultados.",
+        "icon": "whistle",
+        "url": "https://jeffer91.github.io/Club-futbol-ITSQMET-/arbitro/",
+        "aliases": [
+          "arbitraje",
+          "partidos"
+        ]
+      },
+      {
+        "id": "club-admin",
+        "name": "Administración",
+        "description": "Gestionar el campeonato.",
+        "icon": "shield",
+        "url": "https://jeffer91.github.io/Club-futbol-ITSQMET-/administrador/",
+        "aliases": [
+          "torneo",
+          "administrar"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mensajes",
+    "name": "Mensajes",
+    "description": "Comunicación institucional",
+    "icon": "message",
+    "apps": [
+      {
+        "id": "enviar-mensajes",
+        "name": "Enviar mensajes",
+        "description": "Crear y enviar anuncios institucionales.",
+        "icon": "message",
+        "url": "https://tangerine-strudel-35d0e7.netlify.app/anuncios/anuncio.html",
+        "aliases": [
+          "anuncios",
+          "comunicacion",
+          "avisos"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "inducciones",
+    "name": "Inducciones",
+    "description": "Registro de inducciones académicas",
+    "icon": "induction",
+    "apps": [
+      {
+        "id": "registro-inducciones",
+        "name": "Registrar inducción",
+        "description": "Acceder al registro de inducciones.",
+        "icon": "induction",
+        "url": "https://registroinduccionesitsqmet.netlify.app/cronogramas/vista/cedula-solicitud.html",
+        "aliases": [
+          "cedula",
+          "solicitud",
+          "cronogramas"
+        ]
+      }
     ]
   }
 ];
@@ -112,164 +411,94 @@ const icons = {
   tools: '<svg viewBox="0 0 24 24"><path d="M14 6a4 4 0 0 0 4.8 4.8l-8.7 8.7a2 2 0 0 1-2.8-2.8L16 8a4 4 0 0 0 4.8-4.8L18 6l-2-2 2.8-2.8A4 4 0 0 0 14 6Z"/></svg>'
 };
 
-const quickAccess = [
-  { id: "sede-estudiantes", title: "Elegir sede", subtitle: "Examen Complexivo", mark: "Estudiantes", tone: "blue" },
-  { id: "titulo-articulo", title: "Registrar título", subtitle: "Artículo académico", mark: "Titulación", tone: "purple" },
-  { id: "requisitos", title: "Requisitos", subtitle: "Revisión académica", mark: "Gestión", tone: "teal" },
-  { id: "planificacion", title: "Planificación", subtitle: "Cronogramas", mark: "Coordinación", tone: "gold" },
-  { id: "encuesta-formacion", title: "Encuesta docente", subtitle: "Necesidades de capacitación", mark: "Formación", tone: "orange" }
-];
+icons.message = '<svg viewBox="0 0 24 24"><path d="M5 5h14v11H9l-4 4V5Z"/><path d="M8 9h8M8 12h6"/></svg>';
+icons.induction = '<svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg>';
 
-const byId = new Map();
-const allApps = groups.flatMap(group =>
-  group.sections.flatMap(section => section.apps.map(app => {
-    if (byId.has(app.id)) throw new Error("ID duplicado en catálogo: " + app.id);
-    const item = { ...app, group: group.name, groupId: group.id, section: section.name };
-    byId.set(app.id, item);
-    return item;
-  }))
-);
-const totalApps = allApps.length;
-const groupGrid = document.querySelector("#group-grid");
-const quickGrid = document.querySelector("#quick-grid");
+const allApps = areas.flatMap(area => area.apps.map(app => ({ ...app, areaId: area.id, areaName: area.name })));
+const areaGrid = document.querySelector("#area-grid");
+const appGrid = document.querySelector("#app-grid");
 const searchResults = document.querySelector("#search-results");
+const homeView = document.querySelector("#home-view");
+const areaView = document.querySelector("#area-view");
+const resultsView = document.querySelector("#results-view");
 const searchInput = document.querySelector("#search-input");
 const searchClear = document.querySelector("#search-clear");
+const resultCount = document.querySelector("#results-count");
 const emptyState = document.querySelector("#empty-state");
-const resultsNote = document.querySelector("#results-note");
-const appCount = document.querySelector("#app-count");
-const quickSection = document.querySelector("#quick-access");
-const catalogHeading = document.querySelector("#catalog-heading");
-const openGroups = new Set(["estudiantes"]);
-
-function normalize(value) {
-  return String(value || "").toLocaleLowerCase("es").normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
-}
+const areaHeading = document.querySelector("#area-heading");
+const areaDescription = document.querySelector("#area-description");
+const areaIcon = document.querySelector("#area-icon");
+const areaCount = document.querySelector("#area-count");
+const catalogMeta = document.querySelector("#catalog-meta");
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, char =>
-    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+    ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[char]);
 }
-
-function getScore(app, terms) {
-  const name = normalize(app.name);
-  const keywords = normalize([app.name, app.description, app.group, app.section, app.badge, ...(app.aliases || [])].join(" "));
-  const url = normalize(app.url);
-  if (!terms.every(term => keywords.includes(term) || url.includes(term))) return -1;
-  return terms.reduce((score, term) => score + (name.includes(term) ? 5 : 0) +
-    (normalize((app.aliases || []).join(" ")).includes(term) ? 3 : 0), 0);
+function normalize(value) {
+  return String(value || "").toLocaleLowerCase("es").normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim();
 }
-
 function iconFor(name) { return icons[name] || icons.document; }
+function countText(n) { return n + (n === 1 ? " aplicación" : " aplicaciones"); }
 
-function appRow(app, searchMode = false) {
-  const badge = app.badge ? '<span class="route__badge">' + escapeHtml(app.badge) + '</span>' : "";
-  const category = searchMode ? '<span class="route__category">' + escapeHtml(app.group) + '</span>' : "";
-  return '<a class="route route--' + escapeHtml(app.groupId) + '" href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener noreferrer">' +
-    '<span class="route__icon" aria-hidden="true">' + iconFor(app.icon) + '</span>' +
-    '<span class="route__body"><span class="route__heading"><strong>' + escapeHtml(app.name) +
-    '</strong>' + badge + '</span><span class="route__description">' + escapeHtml(app.description) +
-    '</span>' + category + '</span><span class="route__arrow" aria-hidden="true">↗</span></a>';
+function areaCard(area) {
+  const direct = area.apps.length === 1;
+  const href = direct ? area.apps[0].url : "#area/" + area.id;
+  const ext = direct ? ' target="_blank" rel="noopener noreferrer"' : "";
+  return '<a class="area-card" href="' + escapeHtml(href) + '"' + ext + ' aria-label="' +
+    escapeHtml(area.name + (direct ? ": abrir aplicación" : ": ver aplicaciones")) + '">' +
+    '<span class="area-card__top"><span class="icon-tile" aria-hidden="true">' + iconFor(area.icon) +
+    '</span><span class="card-arrow" aria-hidden="true">' + (direct ? "↗" : "→") + '</span></span>' +
+    '<span class="area-card__body"><strong>' + escapeHtml(area.name) + '</strong><span>' +
+    escapeHtml(area.description) + '</span></span><span class="area-card__foot">' +
+    (direct ? "Acceso directo" : countText(area.apps.length)) + '</span></a>';
 }
-
-function renderQuickAccess() {
-  quickGrid.innerHTML = quickAccess.map(item => {
-    const app = byId.get(item.id);
-    if (!app) return "";
-    return '<a class="quick-card quick-card--' + escapeHtml(item.tone) +
-      '" href="' + escapeHtml(app.url) + '" target="_blank" rel="noopener noreferrer">' +
-      '<span class="quick-card__icon" aria-hidden="true">' + iconFor(app.icon) + '</span>' +
-      '<span class="quick-card__body"><span class="quick-card__tag">' + escapeHtml(item.mark) +
-      '</span><strong>' + escapeHtml(item.title) + '</strong><span class="quick-card__subtitle">' +
-      escapeHtml(item.subtitle) + '</span></span><span class="quick-card__arrow" aria-hidden="true">↗</span></a>';
-  }).join("");
+function appCard(app, showArea) {
+  const group = showArea ? '<span class="app-card__area">' + escapeHtml(app.areaName) + '</span>' : "";
+  return '<a class="app-card" href="' + escapeHtml(app.url) +
+    '" target="_blank" rel="noopener noreferrer" aria-label="Abrir ' + escapeHtml(app.name) + ' en otra pestaña">' +
+    '<span class="app-card__top"><span class="icon-tile icon-tile--light" aria-hidden="true">' + iconFor(app.icon) +
+    '</span><span class="card-arrow" aria-hidden="true">↗</span></span>' +
+    '<span class="app-card__body"><strong>' + escapeHtml(app.name) +
+    '</strong><span>' + escapeHtml(app.description) + '</span></span>' + group + '</a>';
 }
-
-function sectionBlock(section, group) {
-  return '<div class="route-section"><div class="route-section__title"><strong>' +
-    escapeHtml(section.name) + '</strong><span>' + section.apps.length + '</span></div>' +
-    '<div class="route-list">' + section.apps.map(app => appRow(byId.get(app.id))).join("") +
-    '</div></div>';
+function currentArea() {
+  const match = /^#area\/([a-z0-9-]+)$/.exec(window.location.hash);
+  return match ? areas.find(area => area.id === match[1]) : null;
 }
-
-function groupCard(group) {
-  const count = group.sections.reduce((sum, section) => sum + section.apps.length, 0);
-  const open = openGroups.has(group.id);
-  return '<section class="group-card' + (group.featured ? ' group-card--featured' : '') +
-    (open ? ' is-open' : '') + '" data-group-id="' + escapeHtml(group.id) + '">' +
-    '<button class="group-card__trigger" type="button" aria-expanded="' + open +
-    '" aria-controls="panel-' + escapeHtml(group.id) + '">' +
-    '<span class="group-card__icon" aria-hidden="true">' + iconFor(group.icon) + '</span>' +
-    '<span class="group-card__title"><strong>' + escapeHtml(group.name) +
-    '</strong><span>' + escapeHtml(group.description) + '</span></span>' +
-    '<span class="group-card__meta"><span class="group-card__count">' + count +
-    '</span><span class="group-card__chevron" aria-hidden="true">' +
-    '<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></span></button>' +
-    '<div class="group-card__content" id="panel-' + escapeHtml(group.id) +
-    '"' + (open ? '' : ' hidden') + '>' +
-    group.sections.map(section => sectionBlock(section, group)).join("") + '</div></section>';
+function matchesSearch(app, terms) {
+  const keywords = normalize([app.name,app.description,app.areaName,...(app.aliases || [])].join(" "));
+  const url = normalize(app.url);
+  return terms.every(term => keywords.includes(term) || url.includes(term));
 }
-
 function render() {
   const query = normalize(searchInput.value);
   const searching = query.length > 0;
-  quickSection.hidden = searching;
-  groupGrid.hidden = searching;
-  searchResults.hidden = !searching;
-  searchClear.hidden = searchInput.value.length === 0;
-  catalogHeading.textContent = searching ? "Resultados de búsqueda" : "Todas las aplicaciones";
-
+  const selected = currentArea();
+  homeView.hidden = searching || !!selected;
+  areaView.hidden = searching || !selected;
+  resultsView.hidden = !searching;
+  searchClear.hidden = !searchInput.value;
+  document.title = searching ? "Buscar | ITSQMET" : selected ? selected.name + " | ITSQMET" : "ITSQMET | Portal de Aplicaciones";
   if (searching) {
-    const terms = query.split(/\s+/).filter(Boolean);
-    const matches = allApps.map((app, i) => ({ app, i, score: getScore(app, terms) }))
-      .filter(item => item.score >= 0)
-      .sort((a, b) => b.score - a.score || a.i - b.i);
-    searchResults.innerHTML = matches.map(item => appRow(item.app, true)).join("");
-    emptyState.hidden = matches.length > 0;
-    resultsNote.textContent = matches.length + (matches.length === 1 ? " aplicación encontrada" : " aplicaciones encontradas");
-  } else {
-    searchResults.innerHTML = "";
-    emptyState.hidden = true;
-    groupGrid.innerHTML = groups.map(groupCard).join("");
-    resultsNote.textContent = groups.length + " áreas · " + totalApps + " aplicaciones";
+    const matches = allApps.filter(app => matchesSearch(app, query.split(/\s+/).filter(Boolean)));
+    searchResults.innerHTML = matches.map(app => appCard(app,true)).join("");
+    resultCount.textContent = countText(matches.length);
+    emptyState.hidden = matches.length !== 0;
+  } else if (selected) {
+    areaHeading.textContent = selected.name;
+    areaDescription.textContent = selected.description;
+    areaIcon.innerHTML = iconFor(selected.icon);
+    areaCount.textContent = countText(selected.apps.length);
+    appGrid.innerHTML = selected.apps.map(app => appCard(app,false)).join("");
   }
 }
-
-groupGrid.addEventListener("click", event => {
-  const button = event.target.closest(".group-card__trigger");
-  if (!button) return;
-  const card = button.closest(".group-card");
-  const id = card.dataset.groupId;
-  const panel = card.querySelector(".group-card__content");
-  const willOpen = !openGroups.has(id);
-  if (willOpen) {
-    openGroups.clear();
-    openGroups.add(id);
-  } else {
-    openGroups.delete(id);
-  }
-  for (const other of groupGrid.querySelectorAll(".group-card")) {
-    const isOpen = openGroups.has(other.dataset.groupId);
-    other.classList.toggle("is-open", isOpen);
-    other.querySelector(".group-card__trigger").setAttribute("aria-expanded", String(isOpen));
-    other.querySelector(".group-card__content").hidden = !isOpen;
-  }
-});
-
-searchInput.addEventListener("input", render);
-searchClear.addEventListener("click", () => {
-  searchInput.value = "";
-  render();
-  searchInput.focus();
-});
-searchInput.addEventListener("keydown", event => {
-  if (event.key === "Escape" && searchInput.value) {
-    searchInput.value = "";
-    render();
-  }
-});
-
-appCount.textContent = totalApps;
-renderQuickAccess();
+function resetSearch() { searchInput.value = ""; render(); }
+searchInput.addEventListener("input",render);
+searchClear.addEventListener("click",() => { resetSearch(); searchInput.focus(); });
+searchInput.addEventListener("keydown",event => { if (event.key === "Escape" && searchInput.value) resetSearch(); });
+window.addEventListener("hashchange",() => { render(); window.scrollTo(0,0); });
+areaGrid.innerHTML = areas.map(areaCard).join("");
+catalogMeta.textContent = areas.length + " áreas · " + countText(allApps.length);
 render();
