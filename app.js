@@ -138,6 +138,29 @@ const areas = [
     ]
   },
   {
+    "id": "portadas",
+    "name": "Portadas",
+    "description": "Preparación de documentos para firma",
+    "icon": "document",
+    "apps": [
+      {
+        "id": "ajustar-portadas",
+        "name": "Preparar portadas PDF",
+        "description": "Ajustar el cuadro de firmas antes de la firma electrónica.",
+        "icon": "document",
+        "url": "https://jeffer91.github.io/Ubicarportads/",
+        "aliases": [
+          "portada",
+          "firmas",
+          "elaborado",
+          "revisado",
+          "aprobado",
+          "pdf"
+        ]
+      }
+    ]
+  },
+  {
     "id": "curriculo",
     "name": "Currículo",
     "description": "Organización académica",
