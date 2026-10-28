@@ -2,13 +2,14 @@
 
 Portal institucional organizado en tarjetas de áreas y aplicaciones. Web estática para GitHub Pages.
 
-## Catálogo: 27 aplicaciones en 10 áreas
+## Catálogo: 28 aplicaciones en 11 áreas
 
 | Área | Aplicaciones |
 | --- | --- |
 | Títulos (5) | Artículo académico, Trabajo de titulación, Coordinadores, Investigación, Administrar títulos |
 | Complexivo (2) | Elegir sede, Administrar sedes |
 | Titulación (3) | Cronogramas, Requisitos, Informes |
+| Portadas (1) | Preparar portadas PDF para firma electrónica |
 | Currículo (1) | Gestión curricular |
 | Docentes (5) | Encuesta docente, Resultados, Capacitación global, Seguimiento, Plan de formación |
 | Finanzas (2) | Registrar clases, Revisar hojas |
