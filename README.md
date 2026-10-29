@@ -2,7 +2,7 @@
 
 Portal institucional organizado en tarjetas de áreas y aplicaciones. Web estática para GitHub Pages.
 
-## Catálogo: 28 aplicaciones en 11 áreas
+## Catálogo: 29 aplicaciones en 12 áreas
 
 | Área | Aplicaciones |
 | --- | --- |
@@ -13,6 +13,7 @@ Portal institucional organizado en tarjetas de áreas y aplicaciones. Web estát
 | Currículo (1) | Gestión curricular |
 | Docentes (5) | Encuesta docente, Resultados, Capacitación global, Seguimiento, Plan de formación |
 | Finanzas (2) | Registrar clases, Revisar hojas |
+| Bases de datos (1) | Base Scan: consulta y respaldo de Firebase, Supabase y Neon |
 | Antiplagio (2) | Revisar similitud, Código fuente |
 | Deportes (5) | Club de fútbol, Inscripciones, Participantes, Árbitros, Administración |
 | Mensajes (1) | Enviar mensajes |
