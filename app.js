@@ -278,6 +278,22 @@ const areas = [
     ]
   },
   {
+    "id": "bases-datos",
+    "name": "Bases de datos",
+    "description": "Consulta y respaldo de bases de datos",
+    "icon": "document",
+    "apps": [
+      {
+        "id": "base-scan",
+        "name": "Base Scan",
+        "description": "Consultar y respaldar bases de datos de Firebase, Supabase y Neon.",
+        "icon": "scan",
+        "url": "https://jeffer91.github.io/base-scan/",
+        "aliases": ["bases de datos", "respaldos", "firebase", "supabase", "neon", "excel", "exportar"]
+      }
+    ]
+  },
+  {
     "id": "antiplagio",
     "name": "Antiplagio",
     "description": "Revisión académica",
