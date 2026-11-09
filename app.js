@@ -255,12 +255,14 @@ const areas = [
     "apps": [
       {
         "id": "hoja-financiera-docente",
-        "name": "Registrar clases",
-        "description": "Crear y entregar hojas financieras.",
+        "name": "Elaborar hojas financieras",
+        "description": "Crear y descargar hojas financieras docentes.",
         "icon": "document",
         "url": "https://jeffer91.github.io/Hoja-Financiera/",
         "aliases": [
           "hoja financiera",
+          "hojas financieras",
+          "registrar clases",
           "pdf"
         ]
       },
